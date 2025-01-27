@@ -1,7 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % function to register points to a surface based on ICP
 % for fine tune the final registration of probe to head 
-% created 2025.01.24
+% created 2025.01.22
+% modified 2025 01.24
 % Jingjing Jiang jing.jing.jiang@outlook.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -22,7 +23,7 @@ R_true = axang2rotm([0.5 0.5 0.5 pi/6]); % smaller rotation
 t_true = [4 5 6]';
 moving_pts_transformed = moving_pts_original * R_true + t_true';
 
-noise_level = 0 
+noise_level = 0.1 % absolute value, reduce to 0 for testing
 noise = randn(size(moving_pts_transformed)) * noise_level;  
 moving_pts = moving_pts_transformed + noise;
 
